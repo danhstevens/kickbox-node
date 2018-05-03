@@ -48,12 +48,12 @@ var TrustApi = new Kickbox.TrustApi();
 - - - - 
 
 # Email Address Verification Methods
-| Method                              | Description                                       |
-| ----------------------------------- | ------------------------------------------------- |
-| `VerificationApi.verify`            | Verify a single email address                     |
-| `VerificationApi.verifyBatch`       | Verify multiple email addresses (up to 1 million) |
-| `VerificationApi.verifyBatchStatus` | Check on the status of a batch verification job   |
-| `VerificationApi.balance`           | Check your verification credit balance            |
+| Method                                                                   | Description                                       |
+| ------------------------------------------------------------------------ | ------------------------------------------------- |
+| [`VerificationApi.verify`](#verificationapiverify)                       | Verify a single email address                     |
+| [`VerificationApi.verifyBatch`](#verificationapiverifybatch)             | Verify multiple email addresses (up to 1 million) |
+| [`VerificationApi.verifyBatchStatus`](#verificationapiverifybatchstatus) | Check on the status of a batch verification job   |
+| [`VerificationApi.balance`](#verificationapibalance)                     | Check your verification credit balance            |
 
 ## `VerificationApi.verify`
 Verify a single email address
