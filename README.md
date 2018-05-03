@@ -3,7 +3,7 @@
   <br>
 </p>
 
-# Email Verification Library for Node.js
+# Email Verification & Confirmation Library for Node.js
 
 Kickbox determines if an email address is not only valid, but associated with a actual user. Uses include:
 
@@ -25,62 +25,50 @@ $ npm install kickbox
 
 #### Versions
 
-Works with Node 0.8+
+Works with Node 0.12+
+
+## Getting Started & Authenticating
+
+Let's include the Kickbox library and add your API key:
+
+```js
+var Kickbox = require('kickbox');
+var KickboxClient = Kickbox.ApiClient.instance;
+
+// Set Your Kickbox API Key
+KickboxClient.authentications['apikey'].apiKey = 'YOUR_API_KEY_HERE';
+
+// To verify email addresses, instantiate the verification class
+var Verification = new Kickbox.VerificationApi();
+
+// To confirm email addresses with Trust, instantiate the trust class
+var Trust = new Kickbox.TrustApi();
+```
 
 ## Usage
 
 ```js
-var kickbox = require('kickbox').client('Your_API_Key_Here').kickbox();
-
-kickbox.verify("test@example.com", function (err, response) {
+Verification.verify('test@example.com').then(function(data){
   // Let's see some results
-  console.log(response.body);
+  console.log(data);
+}, function(error) {
+  // Something went awry
+  console.error(error.body);
 });
 ```
 
 #### Options
 
-**timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000.
+**timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000. Max: 30000
 
 ```js
 // Example with options
-kickbox.verify("test@example.com", {timeout: 6000}, function (err, response) {/*...*/});
+Verification.verify("test@example.com", {timeout: 6000}).then(/*...*/);
 ```
 
 ### Response information
 
-A successful API call responds with the following values:
-
-* **result** `string` - The verification result: `deliverable`, `undeliverable`, `risky`, `unknown`
-* **reason** `string` - The reason for the result. Possible reasons are:
-    * `invalid_email` - Specified email is not a valid email address syntax
-    * `invalid_domain` - Domain for email does not exist
-    * `rejected_email` - Email address was rejected by the SMTP server, email address does not exist
-    * `accepted_email` - Email address was accepted by the SMTP server
-    * `low_quality ` - Email address has quality issues that may make it a risky or low-value address
-    * `low_deliverability ` - Email address appears to be deliverable, but deliverability cannot be guaranteed
-    * `no_connect` - Could not connect to SMTP server
-    * `timeout` - SMTP session timed out
-    * `invalid_smtp` - SMTP server returned an unexpected/invalid response
-    * `unavailable_smtp` - SMTP server was unavailable to process our request
-    * `unexpected_error` - An unexpected error has occurred
-* **role** `true | false` - *true* if the email address is a role address (`postmaster@example.com`, `support@example.com`, etc)
-* **free** `true | false` - *true* if the email address uses a free email service like gmail.com or yahoo.com.
-* **disposable** `true | false` - *true* if the email address uses a *disposable* domain like trashmail.com or mailinator.com.
-* **accept_all** `true | false` - *true* if the email was accepted, but the domain appears to accept all emails addressed to that domain.
-* **did_you_mean** `null | string` - Returns a suggested email if a possible spelling error was detected. (`bill.lumbergh@gamil.com` -> `bill.lumbergh@gmail.com`)
-* **sendex** `float` - A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found [here](https://docs.kickbox.com/v2.0/docs/the-sendex).
-* **email** `string` - Returns a normalized version of the provided email address. (`BoB@example.com` -> `bob@example.com`)
-* **user** `string` - The user (a.k.a local part) of the provided email address. (`bob@example.com` -> `bob`)
-* **domain** `string` - The domain of the provided email address. (`bob@example.com` -> `example.com`)
-* **success** `true | false` - *true* if the API request was successful (i.e., no authentication or unexpected errors occurred)
-
-### Response headers
-
-Along with each response, the following HTTP headers are included:
-
-* `X-Kickbox-Balance` - Your remaining verification credit balance (Daily + On Demand).
-* `X-Kickbox-Response-Time` - The elapsed time (in milliseconds) it took Kickbox to process the request.
+See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#section-response-values) for full response details.
 
 ## License
 MIT
