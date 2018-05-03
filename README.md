@@ -39,16 +39,29 @@ var KickboxClient = Kickbox.ApiClient.instance;
 KickboxClient.authentications['apikey'].apiKey = 'YOUR_API_KEY_HERE';
 
 // To verify email addresses, instantiate the verification class
-var Verification = new Kickbox.VerificationApi();
+var VerificationApi = new Kickbox.VerificationApi();
 
 // To confirm email addresses with Trust, instantiate the trust class
-var Trust = new Kickbox.TrustApi();
+var TrustApi = new Kickbox.TrustApi();
 ```
 
-## Usage
+- - - - 
+
+# Email Address Verification Methods
+| Method                              | Description                                       |
+| ----------------------------------- | ------------------------------------------------- |
+| `VerificationApi.verify`            | Verify a single email address                     |
+| `VerificationApi.verifyBatch`       | Verify multiple email addresses (up to 1 million) |
+| `VerificationApi.verifyBatchStatus` | Check on the status of a batch verification job   |
+| `VerificationApi.balance`           | Check your verification credit balance            |
+
+## `VerificationApi.verify`
+Verify a single email address
+
+### Usage
 
 ```js
-Verification.verify('test@example.com').then(function(data){
+VerificationApi.verify('test@example.com').then(function(data){
   // Let's see some results
   console.log(data);
 }, function(error) {
@@ -63,12 +76,14 @@ Verification.verify('test@example.com').then(function(data){
 
 ```js
 // Example with options
-Verification.verify("test@example.com", {timeout: 6000}).then(/*...*/);
+VerificationApi.verify("test@example.com", {timeout: 6000}).then(/*...*/);
 ```
 
 ### Response information
 
 See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#section-response-values) for full response details.
+
+- - - - 
 
 ## License
 MIT
