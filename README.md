@@ -81,6 +81,20 @@ VerificationApi.verify("test@example.com", {timeout: 6000}).then(/*...*/);
 
 See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#section-response-values) for full response details.
 
+## `VerificationApi.verifyBatch`
+TODO
+
+## `VerificationApi.verifyBatchStatus`
+TODO
+
+## `VerificationApi.balance`
+TODO
+
+- - - - 
+
+# Trust Methods
+- TODO
+
 - - - - 
 
 ## License
