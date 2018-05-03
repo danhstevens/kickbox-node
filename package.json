@@ -1,9 +1,9 @@
 {
   "name": "kickbox",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Official kickbox API library client for node.js",
-  "author": "Chaitanya Surapaneni <chaitanya.surapaneni@kickbox.com> (https://github.com/kickboxio)",
-  "homepage": "http://kickbox.com",
+  "author": "Kickbox <help@kickbox.com> (https://github.com/kickboxio)",
+  "homepage": "https://kickbox.com",
   "keywords": [
     "free",
     "email",
@@ -17,15 +17,20 @@
     "type": "git",
     "url": "https://github.com/kickboxio/kickbox-node"
   },
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "dependencies": {
-    "request": "2.x.x"
+    "superagent": "3.5.2"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
   },
   "bugs": {
     "url": "https://github.com/kickboxio/kickbox-node/issues"
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.12"
   }
 }
