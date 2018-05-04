@@ -165,6 +165,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.body 
      * @param {String} opts.xKickboxCallback If a valid URL is specified, Kickbox will send a HTTP **POST**  containing the results of the job to it when the batch verification completes.
+     * @param {String} opts.xKickboxFilename The file containing your results will have the specified name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/VerifyBatchResponse} and HTTP response
      */
     this.verifyBatchWithHttpInfo = function(opts) {
@@ -179,7 +180,8 @@
       var collectionQueryParams = {
       };
       var headerParams = {
-        'X-Kickbox-Callback': opts['xKickboxCallback']
+        'X-Kickbox-Callback': opts['xKickboxCallback'],
+        'X-Kickbox-Filename': opts['xKickboxFilename']
       };
       var formParams = {
       };
@@ -202,6 +204,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.body 
      * @param {String} opts.xKickboxCallback If a valid URL is specified, Kickbox will send a HTTP **POST**  containing the results of the job to it when the batch verification completes.
+     * @param {String} opts.xKickboxFilename The file containing your results will have the specified name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VerifyBatchResponse}
      */
     this.verifyBatch = function(opts) {
