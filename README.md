@@ -29,37 +29,27 @@ Works with Node 0.12+
 
 ## Getting Started & Authenticating
 
-Let's include the Kickbox library and add your API key:
+Let's include the Kickbox library and set your API key:
 
 ```js
-var Kickbox = require('kickbox');
-var KickboxClient = Kickbox.ApiClient.instance;
-
-// Set Your Kickbox API Key
-KickboxClient.authentications['apikey'].apiKey = 'YOUR_API_KEY_HERE';
-
-// To verify email addresses, instantiate the verification class
-var VerificationApi = new Kickbox.VerificationApi();
-
-// To confirm email addresses with Trust, instantiate the trust class
-var TrustApi = new Kickbox.TrustApi();
+const kickbox = require('kickbox')('YOUR_API_KEY_HERE');
 ```
 
 - - - - 
 
 # Email Address Verification Methods
-* **[`VerificationApi.verify`](#verificationapiverify)** - Verify a single email address
-* **[`VerificationApi.verifyBatch`](#verificationapiverifybatch)** - Verify multiple email addresses (up to 1 million)
-* **[`VerificationApi.verifyBatchStatus`](#verificationapiverifybatchstatus)** - Check on the status of a batch verification job
-* **[`VerificationApi.balance`](#verificationapibalance)** - Check your verification credit balance
+* **[`verification.verify`](#verificationverify)** - Verify a single email address
+* **[`verification.verifyBatch`](#verificationverifybatch)** - Verify multiple email addresses (up to 1 million)
+* **[`verification.verifyBatchStatus`](#verificationverifybatchstatus)** - Check on the status of a batch verification job
+* **[`verification.balance`](#verificationbalance)** - Check your verification credit balance
 
-## `VerificationApi.verify`
+## `verification.verify`
 Verify a single email address
 
 ### Usage
 
 ```js
-VerificationApi.verify('test@example.com').then(function(data){
+kickbox.verification.verify('test@example.com').then(function(data){
   // Let's see some results
   console.log(data);
 }, function(error) {
@@ -74,20 +64,20 @@ VerificationApi.verify('test@example.com').then(function(data){
 
 ```js
 // Example with options
-VerificationApi.verify("test@example.com", {timeout: 6000}).then(/*...*/);
+kickbox.verification.verify("test@example.com", {timeout: 6000}).then(/*...*/);
 ```
 
 ### Response information
 
 See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#section-response-values) for full response details.
 
-## `VerificationApi.verifyBatch`
+## `verification.verifyBatch`
 TODO
 
-## `VerificationApi.verifyBatchStatus`
+## `verification.verifyBatchStatus`
 TODO
 
-## `VerificationApi.balance`
+## `verification.balance`
 TODO
 
 - - - - 
