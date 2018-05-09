@@ -54,7 +54,7 @@ kickbox.verification.verify('test@example.com').then(function(data){
   console.log(data);
 }, function(error) {
   // Something went awry
-  console.error(error.body);
+  console.error(error);
 });
 ```
 
@@ -67,18 +67,18 @@ kickbox.verification.verify('test@example.com').then(function(data){
 kickbox.verification.verify("test@example.com", {timeout: 6000}).then(/*...*/);
 ```
 
-### Response information
+### Response
 
 See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#section-response-values) for full response details.
 
 ## `verification.verifyBatch`
-TODO
+Verify multiple email addresses (up to 1 million)
 
 ## `verification.verifyBatchStatus`
-TODO
+Check on the status of a batch verification job
 
 ## `verification.balance`
-TODO
+Check your verification credit balance
 
 - - - - 
 
