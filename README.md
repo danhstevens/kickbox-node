@@ -131,4 +131,5 @@ MIT
 Report [here](https://github.com/kickboxio/kickbox-node/issues).
 
 ## Need Help?
-help@kickbox.com
+* Slack with us: http://slack.kickbox.com/
+* Email us: help@kickbox.com
