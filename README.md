@@ -60,7 +60,7 @@ kickbox.verification.verify('test@example.com').then(function(data){
 
 #### Options
 
-**timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000. Max: 30000
+* **timeout** `integer` (optional) - Maximum time, in milliseconds, for the API to complete a verification request. Default: 6000. Max: 30000
 
 ```js
 // Example with options
@@ -73,6 +73,28 @@ See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#se
 
 ## `verification.verifyBatch`
 Verify multiple email addresses (up to 1 million)
+
+### Usage
+
+```js
+var body = "email1@example.com\nemail2@example.com"; // The list of email addresses, one per line or in CSV format.
+var options = {/* your options here */};
+apiInstance.verifyBatch(body, options).then(function(data) {
+  // Response data
+}, function(error) {
+  // Error data
+});
+```
+
+#### Options
+
+* **xKickboxFilename** `string` (optional) - The file containing your results will have the specified name.
+* **xKickboxCallback** `string` (optional) - If a valid URL is specified, Kickbox will send a HTTP **POST**  containing the results of the job to it when the batch verification completes.
+
+### Response
+* **id** `integer` - The ID of the verification job
+* **message** `string` - Additional information from the server
+* **success** `boolean` - _true_ if the API request did not result in any unexpected errors
 
 ## `verification.verifyBatchStatus`
 Check on the status of a batch verification job
