@@ -67,6 +67,7 @@
 
 
 
+
   };
 
   /**
@@ -94,6 +95,9 @@
       }
       if (data.hasOwnProperty('error')) {
         obj['error'] = ApiClient.convertToType(data['error'], 'String');
+      }
+      if (data.hasOwnProperty('download_url')) {
+        obj['download_url'] = ApiClient.convertToType(data['download_url'], 'String');
       }
       if (data.hasOwnProperty('progress')) {
         obj['progress'] = VerifyBatchStatusResponseProgress.constructFromObject(data['progress']);
@@ -136,6 +140,11 @@
    * @member {String} error
    */
   exports.prototype['error'] = undefined;
+  /**
+   * URL to download your verification results file.
+   * @member {String} download_url
+   */
+  exports.prototype['download_url'] = undefined;
   /**
    * @member {module:model/VerifyBatchStatusResponseProgress} progress
    */
