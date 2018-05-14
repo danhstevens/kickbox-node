@@ -162,15 +162,20 @@
     /**
      * Verify up to 1 million email addresses with one API call
      * 
+     * @param {String} body 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.body 
      * @param {String} opts.xKickboxCallback If a valid URL is specified, Kickbox will send a HTTP **POST**  containing the results of the job to it when the batch verification completes.
      * @param {String} opts.xKickboxFilename The file containing your results will have the specified name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/VerifyBatchResponse} and HTTP response
      */
-    this.verifyBatchWithHttpInfo = function(opts) {
+    this.verifyBatchWithHttpInfo = function(body, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling verifyBatch");
+      }
 
 
       var pathParams = {
@@ -201,14 +206,14 @@
     /**
      * Verify up to 1 million email addresses with one API call
      * 
+     * @param {String} body 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.body 
      * @param {String} opts.xKickboxCallback If a valid URL is specified, Kickbox will send a HTTP **POST**  containing the results of the job to it when the batch verification completes.
      * @param {String} opts.xKickboxFilename The file containing your results will have the specified name.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VerifyBatchResponse}
      */
-    this.verifyBatch = function(opts) {
-      return this.verifyBatchWithHttpInfo(opts)
+    this.verifyBatch = function(body, opts) {
+      return this.verifyBatchWithHttpInfo(body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

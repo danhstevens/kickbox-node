@@ -65,9 +65,10 @@
    * @param email {String} A normalized version of the provided email address. For instance, \"BoB@example.com\" returns a result of \"bob@example.com\"
    * @param user {String} The user (also known as the local part) of the provided email address. For example, \"bob@example.com\" results in \"bob\"
    * @param domain {String} The domain part of the email address. For instance, \"bob@example.com\" results in \"example.com\"
+   * @param message {String} Additional information from the server
    * @param success {Boolean} true if the API request did not result in any unexpected errors
    */
-  var exports = function(result, reason, role, free, disposable, acceptAll, didYouMean, sendex, email, user, domain, success) {
+  var exports = function(result, reason, role, free, disposable, acceptAll, didYouMean, sendex, email, user, domain, message, success) {
     var _this = this;
 
     _this['result'] = result;
@@ -81,6 +82,7 @@
     _this['email'] = email;
     _this['user'] = user;
     _this['domain'] = domain;
+    _this['message'] = message;
     _this['success'] = success;
   };
 
@@ -127,6 +129,9 @@
       }
       if (data.hasOwnProperty('domain')) {
         obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
+      }
+      if (data.hasOwnProperty('message')) {
+        obj['message'] = ApiClient.convertToType(data['message'], 'String');
       }
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -195,6 +200,11 @@
    * @member {String} domain
    */
   exports.prototype['domain'] = undefined;
+  /**
+   * Additional information from the server
+   * @member {String} message
+   */
+  exports.prototype['message'] = undefined;
   /**
    * true if the API request did not result in any unexpected errors
    * @member {Boolean} success

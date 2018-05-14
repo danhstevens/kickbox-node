@@ -55,7 +55,7 @@
    * @alias module:model/BalanceResponse
    * @class
    * @param balance {Number} A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found at https://docs.kickbox.com/v2.0/docs/the-sendex
-   * @param message {String} The domain part of the email address. For instance, \"bob@example.com\" results in \"example.com\"
+   * @param message {String} Additional information from the server
    * @param success {Boolean} true if the API request did not result in any unexpected errors
    */
   var exports = function(balance, message, success) {
@@ -96,7 +96,7 @@
    */
   exports.prototype['balance'] = undefined;
   /**
-   * The domain part of the email address. For instance, \"bob@example.com\" results in \"example.com\"
+   * Additional information from the server
    * @member {String} message
    */
   exports.prototype['message'] = undefined;

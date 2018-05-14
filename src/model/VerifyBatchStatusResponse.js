@@ -54,10 +54,14 @@
    * Constructs a new <code>VerifyBatchStatusResponse</code>.
    * @alias module:model/VerifyBatchStatusResponse
    * @class
+   * @param id {Number} The ID of the verification job
+   * @param message {String} Additional information from the server
+   * @param success {Boolean} true if the API request did not result in any unexpected errors
    */
-  var exports = function() {
+  var exports = function(id, message, success) {
     var _this = this;
 
+    _this['id'] = id;
 
 
 
@@ -66,8 +70,8 @@
 
 
 
-
-
+    _this['message'] = message;
+    _this['success'] = success;
   };
 
   /**
@@ -107,6 +111,9 @@
       }
       if (data.hasOwnProperty('duration')) {
         obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
+      }
+      if (data.hasOwnProperty('message')) {
+        obj['message'] = ApiClient.convertToType(data['message'], 'String');
       }
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -158,6 +165,11 @@
    * @member {Number} duration
    */
   exports.prototype['duration'] = undefined;
+  /**
+   * Additional information from the server
+   * @member {String} message
+   */
+  exports.prototype['message'] = undefined;
   /**
    * true if the API request did not result in any unexpected errors
    * @member {Boolean} success
