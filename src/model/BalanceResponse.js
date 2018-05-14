@@ -54,7 +54,7 @@
    * Constructs a new <code>BalanceResponse</code>.
    * @alias module:model/BalanceResponse
    * @class
-   * @param balance {Number} A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found at https://docs.kickbox.com/v2.0/docs/the-sendex
+   * @param balance {Number} Your verification credit balance
    * @param message {String} Additional information from the server
    * @param success {Boolean} true if the API request did not result in any unexpected errors
    */
@@ -91,7 +91,7 @@
   }
 
   /**
-   * A quality score of the provided email address ranging between 0 (no quality) and 1 (perfect quality). More information on the Sendex Score can be found at https://docs.kickbox.com/v2.0/docs/the-sendex
+   * Your verification credit balance
    * @member {Number} balance
    */
   exports.prototype['balance'] = undefined;
