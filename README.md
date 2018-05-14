@@ -102,6 +102,21 @@ Check on the status of a batch verification job
 ## `verification.balance`
 Check your verification credit balance
 
+### Usage
+
+```js
+kickbox.verification.balance().then(function(data) {
+  // Response data
+}, function(error) {
+  // Error data
+});
+```
+
+### Response
+* **balance** `integer` - Your verification credit balance
+* **message** `string` - Additional information from the server
+* **success** `boolean` - _true_ if the API request did not result in any unexpected errors
+
 - - - - 
 
 # Trust Methods
