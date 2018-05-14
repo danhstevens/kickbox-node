@@ -27,18 +27,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/VerifyBatchStatusResponseProgress'], factory);
+    define(['ApiClient', 'model/VerifyBatchStatusResponseProgress', 'model/VerifyBatchStatusResponseStats'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./VerifyBatchStatusResponseProgress'));
+    module.exports = factory(require('../ApiClient'), require('./VerifyBatchStatusResponseProgress'), require('./VerifyBatchStatusResponseStats'));
   } else {
     // Browser globals (root is window)
     if (!root.Kickbox) {
       root.Kickbox = {};
     }
-    root.Kickbox.VerifyBatchStatusResponse = factory(root.Kickbox.ApiClient, root.Kickbox.VerifyBatchStatusResponseProgress);
+    root.Kickbox.VerifyBatchStatusResponse = factory(root.Kickbox.ApiClient, root.Kickbox.VerifyBatchStatusResponseProgress, root.Kickbox.VerifyBatchStatusResponseStats);
   }
-}(this, function(ApiClient, VerifyBatchStatusResponseProgress) {
+}(this, function(ApiClient, VerifyBatchStatusResponseProgress, VerifyBatchStatusResponseStats) {
   'use strict';
 
 
@@ -62,6 +62,11 @@
 
 
 
+
+
+
+
+
   };
 
   /**
@@ -78,11 +83,26 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'String');
+      }
       if (data.hasOwnProperty('status')) {
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
+      if (data.hasOwnProperty('error')) {
+        obj['error'] = ApiClient.convertToType(data['error'], 'String');
+      }
       if (data.hasOwnProperty('progress')) {
         obj['progress'] = VerifyBatchStatusResponseProgress.constructFromObject(data['progress']);
+      }
+      if (data.hasOwnProperty('stats')) {
+        obj['stats'] = VerifyBatchStatusResponseStats.constructFromObject(data['stats']);
+      }
+      if (data.hasOwnProperty('duration')) {
+        obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
       }
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -97,14 +117,38 @@
    */
   exports.prototype['id'] = undefined;
   /**
+   * Name of the verification file
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * Date/time stamp when the batch verification job was created. Example: '2018-05-04T21:08:28.000Z'
+   * @member {String} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
    * Job status
    * @member {String} status
    */
   exports.prototype['status'] = undefined;
   /**
+   * Description of any error encountered
+   * @member {String} error
+   */
+  exports.prototype['error'] = undefined;
+  /**
    * @member {module:model/VerifyBatchStatusResponseProgress} progress
    */
   exports.prototype['progress'] = undefined;
+  /**
+   * @member {module:model/VerifyBatchStatusResponseStats} stats
+   */
+  exports.prototype['stats'] = undefined;
+  /**
+   * Total verification time, in milliseconds
+   * @member {Number} duration
+   */
+  exports.prototype['duration'] = undefined;
   /**
    * true if the API request did not result in any unexpected errors
    * @member {Boolean} success

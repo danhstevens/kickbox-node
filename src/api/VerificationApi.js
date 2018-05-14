@@ -187,7 +187,7 @@
       };
 
       var authNames = ['apikey'];
-      var contentTypes = ['text/plain', 'text/csv'];
+      var contentTypes = ['text/csv'];
       var accepts = ['application/json'];
       var returnType = VerifyBatchResponse;
 

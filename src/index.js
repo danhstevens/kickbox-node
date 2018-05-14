@@ -27,12 +27,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ApiError', 'model/BalanceResponse', 'model/TrustError', 'model/VerifyBatchResponse', 'model/VerifyBatchStatusResponse', 'model/VerifyBatchStatusResponseProgress', 'model/VerifyResponse', 'api/TrustApi', 'api/VerificationApi'], factory);
+    define(['ApiClient', 'model/ApiError', 'model/BalanceResponse', 'model/TrustError', 'model/VerifyBatchResponse', 'model/VerifyBatchStatusResponse', 'model/VerifyBatchStatusResponseProgress', 'model/VerifyBatchStatusResponseStats', 'model/VerifyResponse', 'api/TrustApi', 'api/VerificationApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ApiError'), require('./model/BalanceResponse'), require('./model/TrustError'), require('./model/VerifyBatchResponse'), require('./model/VerifyBatchStatusResponse'), require('./model/VerifyBatchStatusResponseProgress'), require('./model/VerifyResponse'), require('./api/TrustApi'), require('./api/VerificationApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ApiError'), require('./model/BalanceResponse'), require('./model/TrustError'), require('./model/VerifyBatchResponse'), require('./model/VerifyBatchStatusResponse'), require('./model/VerifyBatchStatusResponseProgress'), require('./model/VerifyBatchStatusResponseStats'), require('./model/VerifyResponse'), require('./api/TrustApi'), require('./api/VerificationApi'));
   }
-}(function(ApiClient, ApiError, BalanceResponse, TrustError, VerifyBatchResponse, VerifyBatchStatusResponse, VerifyBatchStatusResponseProgress, VerifyResponse, TrustApi, VerificationApi) {
+}(function(ApiClient, ApiError, BalanceResponse, TrustError, VerifyBatchResponse, VerifyBatchStatusResponse, VerifyBatchStatusResponseProgress, VerifyBatchStatusResponseStats, VerifyResponse, TrustApi, VerificationApi) {
   'use strict';
 
   /**
@@ -102,6 +102,11 @@
      * @property {module:model/VerifyBatchStatusResponseProgress}
      */
     VerifyBatchStatusResponseProgress: VerifyBatchStatusResponseProgress,
+    /**
+     * The VerifyBatchStatusResponseStats model constructor.
+     * @property {module:model/VerifyBatchStatusResponseStats}
+     */
+    VerifyBatchStatusResponseStats: VerifyBatchStatusResponseStats,
     /**
      * The VerifyResponse model constructor.
      * @property {module:model/VerifyResponse}
