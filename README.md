@@ -134,7 +134,20 @@ kickbox.verification.balance().then(function(data) {
 - - - - 
 
 # Trust Methods
-- TODO
+* **[`trust.validate`](#trustvalidate)** - Check that the Trust token is real
+
+## `trust.validate`
+Check that the Trust token is real
+
+### Usage
+
+```js
+kickbox.trust.validate(appId, token, email).then(function() {
+  // Validated successfully
+}, function(error) {
+  // Error data
+});
+```
 
 - - - - 
 
