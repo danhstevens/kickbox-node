@@ -79,7 +79,7 @@ Verify multiple email addresses (up to 1 million)
 ```js
 var body = "email1@example.com\nemail2@example.com"; // The list of email addresses, one per line or in CSV format.
 var options = {/* your options here */};
-apiInstance.verifyBatch(body, options).then(function(data) {
+kickbox.verification.verifyBatch(body, options).then(function(data) {
   // Response data
 }, function(error) {
   // Error data
