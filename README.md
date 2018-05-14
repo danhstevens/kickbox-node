@@ -99,6 +99,20 @@ kickbox.verification.verifyBatch(body, options).then(function(data) {
 ## `verification.verifyBatchStatus`
 Check on the status of a batch verification job
 
+### Usage
+
+```js
+kickbox.verification.verifyBatchStatus(jobId).then(function(data){
+  // Response data
+}, function(error) {
+  // Error data
+});
+```
+
+### Response
+
+See our [API Reference Documentation](https://docs.kickbox.com/v2.0/reference#check-job-status) for full response details.
+
 ## `verification.balance`
 Check your verification credit balance
 
