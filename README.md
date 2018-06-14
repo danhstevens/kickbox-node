@@ -43,6 +43,11 @@ const kickbox = require('kickbox')('YOUR_API_KEY_HERE');
 * **[`verification.verifyBatchStatus`](#verificationverifybatchstatus)** - Check on the status of a batch verification job
 * **[`verification.balance`](#verificationbalance)** - Check your verification credit balance
 
+# Trust Methods
+* **[`trust.validate`](#trustvalidate)** - Validate a user's Trust token
+
+- - - - 
+
 ## `verification.verify`
 Verify a single email address
 
@@ -132,9 +137,6 @@ kickbox.verification.balance().then(function(data) {
 * **success** `boolean` - _true_ if the API request did not result in any unexpected errors
 
 - - - - 
-
-# Trust Methods
-* **[`trust.validate`](#trustvalidate)** - Check that the Trust token is real
 
 ## `trust.validate`
 Check that the Trust token is real
