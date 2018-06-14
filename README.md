@@ -1,15 +1,11 @@
 <p align="center">
-  <img src="https://static.kickbox.io/kickbox_github.png" alt="Kickbox Email Verification Service">
+  <a href="https://kickbox.com"><img src="https://static.kickbox.io/kickbox_github.png" alt="Kickbox Email Verification Service"></a>
   <br>
 </p>
 
 # Email Verification & Confirmation Library for Node.js
 
-Kickbox determines if an email address is not only valid, but associated with a actual user. Uses include:
-
-* Preventing users from creating accounts on your applications using fake, misspelled, or throw-away email addresses.
-* Reducing bounces by removing old, invalid, and low quality email addresses from your mailing lists.
-* Saving money and projecting your reputation by only sending to real email users.
+Our [Email Verification](https://kickbox.com/email-verification) API ensures you only send to real email addresses and prevents sending to invalid, mistyped, and disposable email addresses. The [Trust (Email Confirmation)](https://kickbox.com/trust) API is an email confirmation service that ensures your users own the email address they provide and prevents bots and malicious users from creating fake accounts.
 
 ## Getting Started
 
